@@ -41,6 +41,18 @@ public class VentanaPlacas extends JFrame {
 
     }
 
+    public int getParteNumerica(String placa) {
+        int res = 0;
+
+        for (int i = 0; i < placa.length(); i++) {
+            char c = placa.charAt(i);
+            if (c >= '0' && c <= '9') {
+                res = res * 10 + Character.getNumericValue(c);
+            }
+        }
+        return res % 10;
+    }
+
     public void validarNumPlaca() {
         if (restriccion()) {
             etiqueta2.setText("La placa " + campo.getText() + " CIRCULA");
