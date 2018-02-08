@@ -53,6 +53,8 @@ public class VentanaPlacas extends JFrame {
         return res % 10;
     }
 
+
+
     public void validarNumPlaca() {
         if (restriccion()) {
             etiqueta2.setText("La placa " + campo.getText() + " CIRCULA");
@@ -60,6 +62,40 @@ public class VentanaPlacas extends JFrame {
             etiqueta2.setText("La placa Num: "+campo.getText() +"NO circula");
         verificacion.setVisible(true);
 
+    }
+
+    public boolean restriccion() {
+
+        boolean restiction = true;
+        String numPlaca = campo.getText();//devuelve lo que tenemos en el campo en int
+        int numero = getParteNumerica(numPlaca);
+
+        if (numero == 0 || numero == 1) {
+            if (Calendar.DAY_OF_WEEK == 0) {
+                restiction = false;
+            }
+        }
+        if (numero == 2 || numero == 3) {
+            if (Calendar.DAY_OF_WEEK == 1) {
+                restiction = false;
+            }
+        }
+        if (numero == 4 || numero == 5) {
+            if (Calendar.DAY_OF_WEEK == 2) {
+                restiction = false;
+            }
+        }
+        if (numero == 6 || numero == 7) {
+            if (Calendar.DAY_OF_WEEK == 3) {
+                restiction = false;
+            }
+        }
+        if (numero == 8 || numero == 9) {
+            if (Calendar.DAY_OF_WEEK == 4) {
+                restiction = false;
+            }
+        }
+        return restiction;
     }
 
 
