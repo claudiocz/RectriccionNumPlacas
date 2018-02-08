@@ -41,6 +41,15 @@ public class VentanaPlacas extends JFrame {
 
     }
 
+    public void validarNumPlaca() {
+        if (restriccion()) {
+            etiqueta2.setText("La placa " + campo.getText() + " CIRCULA");
+        } else
+            etiqueta2.setText("La placa Num: "+campo.getText() +"NO circula");
+        verificacion.setVisible(true);
+
+    }
+
 
 }
 
